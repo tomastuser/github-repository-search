@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
+import {
+  Button,
+  Typography,
+  TextField,
+  Dialog,
+  DialogContent,
+  DialogContentText,
+} from '@material-ui/core';
 
 const UserNameInputForm = () => {
-  const [userName, setUserName] = useState<string>('');
+  const [userName, setUserName] = useState('');
   const [open, setOpen] = useState(false);
-
-  const handleDialogClickOpen = () => {
-    setOpen(true);
-  };
 
   const handleDialogClose = () => {
     setOpen(false);
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserName(e.target.value);
   };
 
@@ -36,7 +34,7 @@ const UserNameInputForm = () => {
         color='primary'
         size='large'
         onClick={handleClick}
-        style={{ marginBottom: '23vh', backgroundColor: '#1976d2' }}
+        style={{ marginBottom: '23vh' }}
       >
         List Repositories and Organizations
       </Button>
@@ -64,23 +62,25 @@ const UserNameInputForm = () => {
       </Typography>
       <TextField
         id='username'
-        variant='outlined'
+        variant='standard'
         label='Username'
         type='text'
         onChange={handleChange}
-        required
         style={{ marginBottom: '11vh' }}
       />
       <div>{ConfirmButton()}</div>
       <Dialog
         open={open}
         onClose={handleDialogClose}
-        aria-labelledby='alert-dialog-title'
         aria-describedby='alert-dialog-description'
       >
         <DialogContent>
-          <DialogContentText id='alert-dialog-description'>
-            Username field must be filled in!
+          <DialogContentText
+            id='alert-dialog-description'
+            color='error'
+            style={{ padding: '10vh', fontSize: '1.3rem' }}
+          >
+            Please fill in the username.
           </DialogContentText>
         </DialogContent>
       </Dialog>

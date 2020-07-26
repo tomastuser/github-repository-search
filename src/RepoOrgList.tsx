@@ -15,6 +15,13 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 const RepoOrgsList = (props: any) => {
   const BASE_URL = 'https://api.github.com';
 
+  const [backdropOpen, setBackdropOpen] = useState(false);
+
+  const [repos, setRepos] = useState<any[]>([]);
+  const [orgs, setOrgs] = useState<any[]>([]);
+
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
       backdrop: {
@@ -24,12 +31,6 @@ const RepoOrgsList = (props: any) => {
     })
   );
   const classes = useStyles();
-  const [backdropOpen, setBackdropOpen] = useState(false);
-
-  const [repos, setRepos] = useState<any[]>([]);
-  const [orgs, setOrgs] = useState<any[]>([]);
-
-  const [isLoaded, setIsLoaded] = useState(false);
 
   function ListItemLink(props: ListItemProps<'a', { button?: true }>) {
     return <ListItem button component='a' {...props} />;

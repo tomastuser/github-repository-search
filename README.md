@@ -1,3 +1,3 @@
 # jsts-interview-project
 
-Interview project for Inqool using React, Typescript and Javascript.
+Interview project using React and Typescript.
