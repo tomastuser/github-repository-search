@@ -1,3 +1,3 @@
-# jsts-interview-project
+# github-repository-search
 
-Interview project using React and Typescript. Deployed at https://jstsinterviewproject.netlify.app/.
+App for listing Github repositories made with React and Typescript. Deployed at https://jstsinterviewproject.netlify.app/.
